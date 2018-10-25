@@ -1,0 +1,28 @@
+<mat-card fxLayout="column"
+          fxFlexAlign="center center"
+          [ngStyle]="{backgroundColor: isSelected==true  ? 'lightblue' : '' }"
+>
+
+  <mat-card-title>
+
+    <div *ngIf="dayReplace==null; else titleDayReplace">
+      {{dayForecast.date | date:'EEEE' | titlecase}}
+    </div>
+
+    <ng-template #titleDayReplace>
+      {{this.dayReplace}}
+    </ng-template>
+
+  </mat-card-title>
+
+  <div fxLayout fxFlexAlign="center">
+    <div><img src="{{dayForecast.icon}}"></div>
+    <div fxLayout fxFlexAlign="center">{{dayForecast.condition}}</div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxLayout class="min-temp">{{dayForecast.minTemperature}} <div class="unit"> C°</div></div>
+    <div fxLayout class="max-temp">{{dayForecast.maxTemperature}} <div class="unit"> C°</div></div>
+  </div>
+
+</mat-card>

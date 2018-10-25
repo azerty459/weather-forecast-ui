@@ -1,0 +1,20 @@
+<mat-card fxLayout="column" fxLayoutGap="30px">
+  <div>
+    <mat-card-title fxLayout fxLayoutAlign="center">
+      Valeur moyenne de la journée
+    </mat-card-title>
+
+    <app-average-details [averageData]="dayForecast.averageData"
+    ></app-average-details>
+  </div>
+
+  <div>
+    <mat-card-title fxLayout fxLayoutAlign="center">
+      Détails par tranche horaire
+    </mat-card-title>
+
+    <app-hours-details [forecastsHoursDetailed]="dayForecast.forecastsHoursDetailed"
+    ></app-hours-details>
+  </div>
+
+</mat-card>

@@ -1,0 +1,25 @@
+<div>
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- Generic column definition -->
+    <ng-container *ngFor="let column of columns" matColumnDef={{column.columnDef}}>
+      <mat-header-cell *matHeaderCellDef>{{ column.header }}</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <div *ngIf="column.columnDef !== 'condition'">
+          {{ column.cell(row) }}
+        </div>
+        <div *ngIf="!(column.columnDef !== 'condition')"
+             fxLayout
+             fxLayoutAlign="center center"
+        >
+          <img src="{{row.icon}}" alt="Icone {{row.condition}}">
+          <div>{{row.condition}}</div>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</div>

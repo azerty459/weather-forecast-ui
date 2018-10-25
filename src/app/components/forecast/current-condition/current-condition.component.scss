@@ -1,0 +1,14 @@
+//#main-div-mat-card-content {
+//  display: flex;
+//}
+
+.mat-cell, .mat-header-cell {
+  display:flex;
+  justify-content:center;
+  text-align: center;
+}
+
+.weather-icon {
+  height: 50px;
+  width: 50px;
+}
