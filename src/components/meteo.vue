@@ -28,10 +28,12 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import meteoJour from '@/components/meteoJour.vue'
 
 Vue.use(VueAxios, axios)
 
 export default{
+  components: {meteoJour},
   data () {
     return {
       ville: {
