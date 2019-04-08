@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
 
 Vue.config.productionTip = false
 
@@ -19,10 +18,5 @@ new Vue({
   },
   router,
   components: { App },
-  mounted () {
-    axios
-      .get('http://localhost:8000/meteo/' + this.ville + '/humidite')
-      .then(response => (this.info = response))
-  },
   template: '<App/>'
 })
