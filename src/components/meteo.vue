@@ -40,7 +40,7 @@ export default{
   data () {
     return {
       ville: {
-        nom: 'roubaix'
+        nom: null
       },
       meteo: null,
       cityInfo: null,
@@ -50,21 +50,18 @@ export default{
     }
   },
   methods: {
-    appelREST: function (v) {
+    appelREST: function () {
       Vue.axios
-        .get('http://localhost:8000/meteo/' + v + '/')
+        .get('http://localhost:8000/meteo/' + this.ville.nom + '/')
         .then(response => { this.meteo = response.data })
     },
     init: function () {
-      this.appelREST(this.ville.nom)
+      this.appelREST()
       if (this.meteo != null) {
         this.cityInfo = this.meteo.city_info
         this.previsionsHeure = this.meteo.previsions
       }
     }
-  },
-  mounted () {
-    this.init()
   }
 }
 </script>
