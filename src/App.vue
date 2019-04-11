@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="grey lighten-4">
+  <div id="app">
     <navbar/>
     <div class="container">
       <search/>
@@ -26,6 +26,9 @@ export default {
 <style>
 @import './assets/materialize/css/materialize.min.css';
 
+body {
+  background-color: #f5f5f5;
+}
 .center {
   text-align: center;
 }

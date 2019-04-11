@@ -5,12 +5,12 @@
         <div class="nav-wrapper">
           <div class="brand-logo hide-on-med-and-down"><img class="logo-img" src="@/assets/logo.png"></div>
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo title center">Météo</a>
+          <a href="#" class="brand-logo title center">M&eacute;t&eacute;o</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li :class="active[0]"><a href="#">Prévisions</a></li>
-            <li :class="active[1]"><a href="#">Jour le plus chaud</a></li>
-            <li :class="active[2]"><a href="#">Jours de pluie</a></li>
-            <li :class="active[3]"><a href="#">Humidite</a></li>
+            <li v-bind:class="pagePrevision"><router-link :to="'/prevision'">Prévisions</router-link></li>
+            <li v-bind:class="pageChaleur"><router-link :to="'/chaleur'">Jour le plus chaud</router-link></li>
+            <li v-bind:class="pagePluie"><router-link :to="'/pluie'">Jours de pluie</router-link></li>
+            <li v-bind:class="pageHumidite"><router-link :to="'/humidite'">Humidit&eacute;</router-link></li>
           </ul>
         </div>
       </nav>
@@ -18,10 +18,10 @@
     <ul class="sidenav" id="mobile-nav">
       <li class="center margin-top"><img class="logo-img" src="@/assets/logo.png"></li>
       <hr>
-      <li :class="active[0]"><a href="#">Prévisions</a></li>
-      <li :class="active[1]"><a href="#">Jour le plus chaud</a></li>
-      <li :class="active[2]"><a href="#">Jours de pluie</a></li>
-      <li :class="active[3]"><a href="#">Humidite</a></li>
+      <li v-bind:class="pagePrevision"><router-link :to="'/prevision'">Prévisions</router-link></li>
+      <li v-bind:class="pageChaleur"><router-link :to="'/chaleur'">Jour le plus chaud</router-link></li>
+      <li v-bind:class="pagePluie"><router-link :to="'/pluie'">Jours de pluie</router-link></li>
+      <li v-bind:class="pageHumidite"><router-link :to="'/humidite'">Humidit&eacute;</router-link></li>
     </ul>
   </div>
 </template>
@@ -30,27 +30,32 @@
 export default{
   data () {
     return {
-      active: ['active', '', '', ''],
-      current: 0
+      pagePrevision: {'active': true},
+      pageChaleur: {'active': false},
+      pagePluie: {'active': false},
+      pageHumidite: {'active': false}
     }
   },
   created () {
     window.bus.$on('newPage', (page) => {
-      var index = 0
+      this.pagePrevision.active = false
+      this.pageChaleur.active = false
+      this.pagePluie.active = false
+      this.pageHumidite.active = false
+
       switch (page) {
-        case 'chaud':
-          index = 1
+        case '/chaleur':
+          this.pageChaleur.active = true
           break
-        case 'pluie':
-          index = 2
+        case '/pluie':
+          this.pagePluie.active = true
           break
-        case 'humide':
-          index = 3
+        case '/humidite':
+          this.pageHumidite.active = true
           break
+        default:
+          this.pagePrevision.active = true
       }
-      this.active[this.current] = ''
-      this.active[index] = 'active'
-      this.current = index
     })
   }
 }

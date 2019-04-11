@@ -5,6 +5,7 @@ import App from './App'
 import router from './router/index.js'
 
 window.bus = new Vue()
+window.search = ''
 
 Vue.config.productionTip = false
 
