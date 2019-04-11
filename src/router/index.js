@@ -11,6 +11,10 @@ let router = new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

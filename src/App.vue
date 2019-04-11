@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" class="grey lighten-4">
     <navbar/>
     <div class="container">
+      <search/>
       <router-view/>
     </div>
   </div>
@@ -11,11 +12,13 @@
 import './assets/materialize/js/materialize.min.js'
 
 import navbar from './components/Header.vue'
+import search from './components/Search.vue'
 
 export default {
   name: 'App',
   components: {
-    navbar
+    navbar,
+    search
   }
 }
 </script>
@@ -25,5 +28,8 @@ export default {
 
 .center {
   text-align: center;
+}
+.margin-top {
+  margin-top: 1em;
 }
 </style>
