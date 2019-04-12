@@ -49,7 +49,6 @@ export default{
   },
   created () {
     if (this.ville != null && this.ville.trim() !== '') {
-      console.log('ici')
       callApi(this, this.ville.trim())
     }
     window.bus.$on('newSearch', (ville) => {
@@ -85,7 +84,7 @@ function callApi (vue, ville) {
       }
     }, (result) => {
       // Sinon
-      console.log('Error')
+      // console.log('Error')
       vue.load = false
       vue.messageError = 'Impossible de contacter le serveur'
     }
@@ -93,12 +92,12 @@ function callApi (vue, ville) {
 }
 
 function success (vue, data) {
-  console.log('Succes')
+  // console.log('Succes')
   vue.city = data.resultat
 }
 
 function fail (vue, data) {
-  console.log('Fail')
+  // console.log('Fail')
   vue.messageError = data.message
 }
 </script>
