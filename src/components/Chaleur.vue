@@ -82,7 +82,7 @@ function callApi (vue, ville) {
       // Si
       vue.load = false
       if (result.body.code === 200) {
-        vue.cityName = ville.replace(/^\w/, c => c.toUpperCase())
+        vue.cityName = ville.charAt(0).toUpperCase() + ville.substring(1).toLowerCase()
         success(vue, result.body)
       } else {
         fail(vue, result.body)
