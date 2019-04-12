@@ -98,7 +98,6 @@ function callApi (vue, ville) {
 
 function success (vue, data) {
   console.log('Succes')
-  console.log(data)
   vue.city = data.resultat
 }
 
