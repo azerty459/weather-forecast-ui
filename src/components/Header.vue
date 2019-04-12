@@ -6,7 +6,7 @@
           <div class="brand-logo hide-on-med-and-down"><img class="logo-img" src="@/assets/logo.png"></div>
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <router-link :to="'/'" class="brand-logo title center">M&eacute;t&eacute;o</router-link>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <ul id="nav" class="right hide-on-med-and-down">
             <li v-bind:class="pagePrevision"><router-link :to="'/prevision'">Prévisions</router-link></li>
             <li v-bind:class="pageChaleur"><router-link :to="'/chaleur'">Jour le plus chaud</router-link></li>
             <li v-bind:class="pagePluie"><router-link :to="'/pluie'">Jours de pluie</router-link></li>
@@ -63,6 +63,11 @@ export default{
 /* eslint-disable */
 $(document).ready(function(){
   $('.sidenav').sidenav();
+  $("li").on('click', function() {
+    if($('#search_city').val().trim() !== '') {
+      $('#search_btn').click()
+    }
+  });
 });
 </script>
 

@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="col s12 l2 center margin-top">
-            <button @click="launchSearch" class="waves-effect waves-light btn blue accent-4"><i class="material-icons left">search</i>Valider</button>
+            <button @click="launchSearch" id="search_btn" class="waves-effect waves-light btn blue accent-4"><i class="material-icons left">search</i>Valider</button>
         </div>
     </div>
 </template>
