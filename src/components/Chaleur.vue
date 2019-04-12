@@ -3,16 +3,16 @@
     <div v-if="load" class="center">
       <loader/>
     </div>
-    <div v-if="city">
+    <div v-if="info">
       <div class="row">
         <div class="col s12">
-          <h2>Jour le plus chaud &agrave; {{cityName}}</h2>
+          <h2>Jour le plus chaud &agrave; {{city}}</h2>
         </div>
       </div>
       <div class="row">
         <div class="col s11 m12 offset-m4">
           <div class="row">
-            <card :icon="city.icon" :day="city.nom" :condition="city.prevision_generale" :max="city.temparature_max" :min="city.temparature_min"/>
+            <card :icon="info.icon" :day="info.nom" :condition="info.prevision_generale" :max="info.temparature_max" :min="info.temparature_min"/>
           </div>
         </div>
       </div>
@@ -40,8 +40,8 @@ Vue.use(VueResource)
 export default{
   data () {
     return {
+      info: null,
       city: null,
-      cityName: null,
       load: false,
       messageError: null,
       messageInfo: null
@@ -73,7 +73,7 @@ function callApi (vue, ville) {
   }
   // Indique le chargement
   vue.messageError = null
-  vue.city = null
+  vue.info = null
   vue.load = true
   // Appel l'api pour recup les resultats
   vue.$resource('meteo/ville/' + ville + '/chaleur').get().then(
@@ -81,7 +81,7 @@ function callApi (vue, ville) {
       // Si
       vue.load = false
       if (result.body.code === 200) {
-        vue.cityName = ville.charAt(0).toUpperCase() + ville.substring(1).toLowerCase()
+        vue.city = ville.charAt(0).toUpperCase() + ville.substring(1).toLowerCase()
         success(vue, result.body)
       } else {
         fail(vue, result.body)
@@ -97,7 +97,7 @@ function callApi (vue, ville) {
 
 function success (vue, data) {
   // console.log('Succes')
-  vue.city = data.resultat
+  vue.info = data.resultat
 }
 
 function fail (vue, data) {
