@@ -30,7 +30,7 @@
 export default{
   data () {
     return {
-      pagePrevision: {'active': true},
+      pagePrevision: {'active': false},
       pageChaleur: {'active': false},
       pagePluie: {'active': false},
       pageHumidite: {'active': false}

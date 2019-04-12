@@ -24,8 +24,14 @@ export default{
   },
   methods: {
     launchSearch () {
-      window.search = this.search
-      console.log(window.search)
+      var page = this.$route.name
+      if (page === 'index') {
+        page = 'prevision/'
+      } else if (page[page.length - 1] !== '/') {
+        page += '/'
+      }
+      this.$router.push(page + this.search)
+      window.bus.$emit('newSearch', this.search)
     }
   }
 }

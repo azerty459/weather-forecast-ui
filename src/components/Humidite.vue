@@ -2,7 +2,7 @@
     <div>
         <h1>Hello World</h1>
         <div v-if="city">
-          <h3>H Vive {{searchValue}}</h3>
+          <h3>H Vive {{city}}</h3>
         </div>
     </div>
 </template>
@@ -17,11 +17,9 @@ export default{
   props: ['ville'],
   created () {
     this.city = this.ville
-  },
-  computed: {
-    searchValue () {
-      return window.search
-    }
+    window.bus.$on('newSearch', (ville) => {
+      this.city = ville
+    })
   }
 }
 </script>
