@@ -3,7 +3,7 @@
         <div v-if="city">
           <div class="row">
             <div class="col s12">
-              <h2>Météo de {{cityName}}</h2>
+              <h2>M&eacute;t&eacute;o de {{cityName}}</h2>
             </div>
           </div>
           <div class="row">
@@ -59,6 +59,9 @@ export default{
 }
 
 function callApi (vue, ville) {
+  if (ville.trim() === '') {
+    return false
+  }
   // Indique le chargement
   vue.messageError = null
   vue.city = null

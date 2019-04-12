@@ -3,7 +3,7 @@
         <div v-if="city">
           <div class="row">
             <div class="col s12">
-              <h2>Jours de pluie à {{cityName}}</h2>
+              <h2>Jours de pluie &agrave; {{cityName}}</h2>
             </div>
           </div>
           <div v-if="city.length">
@@ -64,6 +64,9 @@ export default{
 }
 
 function callApi (vue, ville) {
+  if (ville.trim() === '') {
+    return false
+  }
   // Indique le chargement
   vue.messageError = null
   vue.city = null
