@@ -1,6 +1,6 @@
 <template>
     <div class="row margin-top">
-        <div class="col s10 l8 offset-s1">
+        <div class="col s10 l9 offset-s1">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_city</i>

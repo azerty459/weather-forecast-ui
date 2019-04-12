@@ -1,8 +1,14 @@
 <template>
     <div>
-        <h1>Hello World</h1>
         <div v-if="city">
-          <h3>Pr Vive {{city}}</h3>
+          <div class="row">
+            <div class="col s12">
+              <h2>Météo de {{cityName}}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <card v-for="c in city" :key="c.date" :icon="c.icon" :day="c.nom" :condition="c.prevision_generale" :max="c.temparature_max" :min="c.temparature_min"/>
+          </div>
         </div>
         <div v-if="messageInfo">
           <info :message="messageInfo"/>
@@ -19,6 +25,7 @@ import VueResource from 'vue-resource'
 
 import error from '@/components/message/Error.vue'
 import info from '@/components/message/Info.vue'
+import card from '@/components/display/ForecastCard.vue'
 
 Vue.use(VueResource)
 
@@ -26,6 +33,7 @@ export default{
   data () {
     return {
       city: null,
+      cityName: null,
       messageError: null,
       messageInfo: null
     }
@@ -45,7 +53,8 @@ export default{
   },
   components: {
     error,
-    info
+    info,
+    card
   }
 }
 
@@ -58,6 +67,7 @@ function callApi (vue, ville) {
       // Si
       vue.messageInfo = null
       if (result.body.code === 200) {
+        vue.cityName = ville
         success(vue, result.body)
       } else {
         fail(vue, result.body)
@@ -75,6 +85,8 @@ function callApi (vue, ville) {
 function success (vue, data) {
   console.log('Succes')
   console.log(data)
+  vue.city = data.resultat
+  vue.messageError = null
 }
 
 function fail (vue, data) {
