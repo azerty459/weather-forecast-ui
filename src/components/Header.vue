@@ -5,7 +5,7 @@
         <div class="nav-wrapper">
           <div class="brand-logo hide-on-med-and-down"><img class="logo-img" src="@/assets/logo.png"></div>
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo title center">M&eacute;t&eacute;o</a>
+          <router-link :to="'/'" class="brand-logo title center">M&eacute;t&eacute;o</router-link>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li v-bind:class="pagePrevision"><router-link :to="'/prevision'">Prévisions</router-link></li>
             <li v-bind:class="pageChaleur"><router-link :to="'/chaleur'">Jour le plus chaud</router-link></li>
@@ -43,14 +43,14 @@ export default{
       this.pagePluie.active = false
       this.pageHumidite.active = false
 
-      switch (page) {
-        case '/chaleur':
+      switch (page.split('/')[1]) {
+        case 'chaleur':
           this.pageChaleur.active = true
           break
-        case '/pluie':
+        case 'pluie':
           this.pagePluie.active = true
           break
-        case '/humidite':
+        case 'humidite':
           this.pageHumidite.active = true
           break
         default:
