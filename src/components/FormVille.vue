@@ -29,6 +29,7 @@
         this.errorVille = false
         if(this.ville){
           this.$emit('getVille', this.ville)
+          this.ville = ''
         } else {
           this.errorVille = true
           this.$emit('getVille', '')
