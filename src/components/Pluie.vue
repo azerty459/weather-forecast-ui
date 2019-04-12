@@ -34,7 +34,7 @@ import VueResource from 'vue-resource'
 import error from '@/components/message/Error.vue'
 import info from '@/components/message/Info.vue'
 import card from '@/components/display/ForecastCard.vue'
-import loader from '@/components/loader/Circular.vue'
+import loader from '@/components/loader/Jelly.vue'
 
 Vue.use(VueResource)
 
