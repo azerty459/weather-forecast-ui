@@ -60,6 +60,8 @@ export default{
 
 function callApi (vue, ville) {
   // Indique le chargement
+  vue.messageError = null
+  vue.city = null
   vue.messageInfo = 'Chargement...'
   // Appel l'api pour recup les resultats
   vue.$resource('meteo/ville/' + ville).get().then(
@@ -77,21 +79,17 @@ function callApi (vue, ville) {
       console.log('Error')
       vue.messageInfo = null
       vue.messageError = 'Impossible de contacter le serveur'
-      vue.city = null
     }
   )
 }
 
 function success (vue, data) {
   console.log('Succes')
-  console.log(data)
   vue.city = data.resultat
-  vue.messageError = null
 }
 
 function fail (vue, data) {
   console.log('Fail')
-  vue.city = null
   vue.messageError = data.message
 }
 </script>
