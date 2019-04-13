@@ -31,6 +31,12 @@ export default{
       this.$router.push({name: page, params: {ville: this.search}})
       window.bus.$emit('newSearch', this.search)
     }
+  },
+  created () {
+    var url = location.pathname.split('/')
+    if (url.length > 2) {
+      this.search = url[2]
+    }
   }
 }
 </script>
