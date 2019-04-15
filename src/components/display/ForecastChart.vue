@@ -18,17 +18,6 @@ export default{
   props: {
     chartData: Array
   },
-  methods: {
-    generateRandomString (stringLength) {
-      let randomString = ''
-      let randomAscii
-      for (let i = 0; i < stringLength; i++) {
-        randomAscii = Math.floor((Math.random() * 25) + 97)
-        randomString += String.fromCharCode(randomAscii)
-      }
-      return randomString
-    }
-  },
   created () {
     window.bus.$on('selectDay', (chart) => {
       if (chart != null && this.chart.id !== chart.id) {
