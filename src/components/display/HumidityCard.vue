@@ -22,7 +22,11 @@
 
 <script>
 export default{
-  props: ['actual', 'week', 'dry']
+  props: {
+    actual: Number,
+    week: Number,
+    dry: Boolean
+  }
 }
 </script>
 

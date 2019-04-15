@@ -48,7 +48,9 @@ export default{
       messageInfo: null
     }
   },
-  props: ['ville'],
+  props: {
+    ville: String
+  },
   http: {
     root: 'http://localhost:8080'
   },

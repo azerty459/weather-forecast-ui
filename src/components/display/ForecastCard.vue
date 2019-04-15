@@ -37,7 +37,13 @@
 
 <script>
 export default{
-  props: ['icon', 'day', 'condition', 'max', 'min']
+  props: {
+    icon: String,
+    day: String,
+    condition: String,
+    max: Number,
+    min: Number
+  }
 }
 </script>
 
