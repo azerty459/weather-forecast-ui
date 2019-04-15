@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-image">
         <img :src="icon">
-        <span class="card-title black-text">{{day}}</span>
+        <span class="card-title black-text">{{day}} ({{date}})</span>
       </div>
       <div class="card-content">
         <div class="row">
@@ -40,6 +40,7 @@ export default{
   props: {
     icon: String,
     day: String,
+    date: String,
     condition: String,
     max: Number,
     min: Number
