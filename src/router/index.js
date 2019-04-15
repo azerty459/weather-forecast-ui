@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Prevision from '@/components/Prevision.vue'
-import Chaleur from '@/components/Chaleur.vue'
-import Pluie from '@/components/Pluie.vue'
-import Humidite from '@/components/Humidite.vue'
+import Forecast from '@/components/ForecastPage.vue'
+import Heat from '@/components/HeatPage.vue'
+import Rain from '@/components/RainPage.vue'
+import Humidity from '@/components/HumidityPage.vue'
 
 Vue.use(Router)
 
@@ -13,30 +13,30 @@ let router = new Router({
     {
       path: '/',
       name: 'index',
-      component: Prevision
+      component: Forecast
     },
     {
       path: '/prevision/:ville?',
       name: 'prevision',
-      component: r => require.ensure([], () => r(Prevision)),
+      component: r => require.ensure([], () => r(Forecast)),
       props: true
     },
     {
       path: '/chaleur/:ville?',
       name: 'chaleur',
-      component: r => require.ensure([], () => r(Chaleur)),
+      component: r => require.ensure([], () => r(Heat)),
       props: true
     },
     {
       path: '/pluie/:ville?',
       name: 'pluie',
-      component: r => require.ensure([], () => r(Pluie)),
+      component: r => require.ensure([], () => r(Rain)),
       props: true
     },
     {
       path: '/humidite/:ville?',
       name: 'humidite',
-      component: r => require.ensure([], () => r(Humidite)),
+      component: r => require.ensure([], () => r(Humidity)),
       props: true
     },
     {

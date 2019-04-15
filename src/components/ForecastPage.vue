@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="load" class="center">
-      <loader/>
+      <loader-item/>
     </div>
     <div v-if="info">
       <div class="row">
@@ -10,14 +10,14 @@
         </div>
       </div>
       <div class="row">
-        <card v-for="i in info" :key="i.date" :icon="i.icon" :day="i.nom" :condition="i.prevision_generale" :max="i.temparature_max" :min="i.temparature_min"/>
+        <display-card v-for="i in info" :key="i.date" :icon="i.icon" :day="i.nom" :condition="i.prevision_generale" :max="i.temparature_max" :min="i.temparature_min"/>
       </div>
     </div>
     <div v-if="messageInfo">
-      <info :message="messageInfo"/>
+      <info-message :message="messageInfo"/>
     </div>
     <div v-if="messageError">
-      <error :message="messageError"/>
+      <error-message :message="messageError"/>
     </div>
   </div>
 </template>
@@ -26,10 +26,10 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 
-import error from '@/components/message/Error.vue'
-import info from '@/components/message/Info.vue'
-import card from '@/components/display/ForecastCard.vue'
-import loader from '@/components/loader/Jelly.vue'
+import ErrorMessage from '@/components/message/ErrorMessage.vue'
+import InfoMessage from '@/components/message/InfoMessage.vue'
+import DisplayCard from '@/components/display/ForecastCard.vue'
+import LoaderItem from '@/components/loader/JellyLoader.vue'
 
 Vue.use(VueResource)
 
@@ -56,10 +56,10 @@ export default{
     })
   },
   components: {
-    error,
-    info,
-    card,
-    loader
+    ErrorMessage,
+    InfoMessage,
+    DisplayCard,
+    LoaderItem
   }
 }
 
