@@ -6,8 +6,23 @@
     <div v-if="info">
       <div class="row">
         <div class="col s12">
-          <h2>M&eacute;t&eacute;o &agrave; {{city}}</h2>
+          <h2>M&eacute;t&eacute;o &agrave; {{city}} ({{info.country}})</h2>
         </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <h4>Actuellement</h4>
+        </div>
+      </div>
+      <div class="row">
+        a {{info.sunrise}} <br>
+        b {{info.sunset}} <br>
+        c {{info.temperature}} <br>
+        d {{info.wind_speed}} <br>
+        e {{info.wind_direction}} <br>
+        f {{info.pressure}} <br>
+        g {{info.humidity}} <br>
+        h {{info.condition}} <br>
       </div>
       <div class="row">
         <div class="col s12">
@@ -15,8 +30,8 @@
         </div>
       </div>
       <div class="row">
-        <div v-for="i in info" :key="i.date" @click="selectDay(i)" class="pointer" title="Plus d'informations">
-          <display-card :icon="i.icon" :day="i.nom" :date="i.date" :condition="i.prevision_generale" :max="i.temparature_max" :min="i.temparature_min"/>
+        <div v-for="day in info.days" :key="day.date" @click="selectDay(day)" class="pointer" title="Plus d'informations">
+          <display-card :icon="day.icon" :day="day.nom" :date="day.date" :condition="day.prevision_generale" :max="day.temparature_max" :min="day.temparature_min"/>
         </div>
       </div>
     </div>
