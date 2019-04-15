@@ -10,6 +10,7 @@
 
 <script>
 import './assets/materialize/js/materialize.min.js'
+import './assets/chart/Chart.bundle.min.js'
 
 import navbar from './components/Header.vue'
 import search from './components/Search.vue'
@@ -31,6 +32,12 @@ body {
 }
 .center {
   text-align: center;
+}
+.pointer {
+  cursor: pointer;
+}
+.hide {
+  display: none;
 }
 .margin-top {
   margin-top: 1em;
