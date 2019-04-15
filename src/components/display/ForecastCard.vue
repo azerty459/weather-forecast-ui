@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-image">
         <img :src="icon">
-        <span class="card-title black-text">{{day}} ({{date}})</span>
+        <span class="card-title title-bot black-text">{{day}} ({{date}})</span>
       </div>
       <div class="card-content">
         <div class="row">
@@ -48,6 +48,13 @@ export default{
 }
 </script>
 
-<style>
-
+<style scoped>
+img {
+  max-width: 250px;
+  max-height: 250px;
+  margin: auto;
+}
+.title-bot {
+  bottom: -35px !important;
+}
 </style>

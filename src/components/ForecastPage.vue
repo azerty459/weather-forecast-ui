@@ -15,32 +15,35 @@
         </div>
       </div>
       <div class="row">
-        <div class="row">
-          <div class="col s12 m6 l4 offset-m3 offset-l4">
-            <ul class="collection">
-              <li class="collection-item">
-                <strong>Conditions</strong> : {{info.condition}}
-              </li>
-              <li class="collection-item">
-                <strong>Lever du soleil</strong> : {{info.sunrise}}
-              </li>
-              <li class="collection-item">
-                <strong>Coucher du soleil</strong> : {{info.sunset}}
-              </li>
-              <li class="collection-item">
-                <strong>Temp&eacute;rature</strong> : {{info.temperature}} &deg;C
-              </li>
-              <li class="collection-item">
-                <strong>Vent</strong> : {{info.wind_speed}} km/h direction {{info.wind_direction}}
-              </li>
-              <li class="collection-item">
-                <strong>Pression</strong> : {{info.pressure}} hPa
-              </li>
-              <li class="collection-item">
-                <strong>Humidit&eacute;</strong> : {{info.humidity}} &percnt;
-              </li>
-            </ul>
-          </div>
+        <div class="col s12 center">
+          <img class="current-img" :src="info.icon">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 l4 offset-m3 offset-l4">
+          <ul class="collection">
+            <li class="collection-item">
+              <strong>Conditions</strong> : {{info.condition}}
+            </li>
+            <li class="collection-item">
+              <strong>Lever du soleil</strong> : {{info.sunrise}}
+            </li>
+            <li class="collection-item">
+              <strong>Coucher du soleil</strong> : {{info.sunset}}
+            </li>
+            <li class="collection-item">
+              <strong>Temp&eacute;rature</strong> : {{info.temperature}} &deg;C
+            </li>
+            <li class="collection-item">
+              <strong>Vent</strong> : {{info.wind_speed}} km/h direction {{info.wind_direction}}
+            </li>
+            <li class="collection-item">
+              <strong>Pression</strong> : {{info.pressure}} hPa
+            </li>
+            <li class="collection-item">
+              <strong>Humidit&eacute;</strong> : {{info.humidity}} &percnt;
+            </li>
+          </ul>
         </div>
       </div>
       <div class="row">
@@ -179,6 +182,9 @@ function fail (vue, data) {
 }
 </script>
 
-<style>
-
+<style scoped>
+.current-img {
+  min-width: 200px;
+  min-height: 200px;
+}
 </style>
