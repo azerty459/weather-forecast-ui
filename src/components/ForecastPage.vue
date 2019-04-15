@@ -11,18 +11,37 @@
       </div>
       <div class="row">
         <div class="col s12">
-          <h4>Actuellement</h4>
+          <h4>M&eacute;t&eacute;o actuelle</h4>
         </div>
       </div>
       <div class="row">
-        a {{info.sunrise}} <br>
-        b {{info.sunset}} <br>
-        c {{info.temperature}} <br>
-        d {{info.wind_speed}} <br>
-        e {{info.wind_direction}} <br>
-        f {{info.pressure}} <br>
-        g {{info.humidity}} <br>
-        h {{info.condition}} <br>
+        <div class="row">
+          <div class="col s12 m6 l4 offset-m3 offset-l4">
+            <ul class="collection">
+              <li class="collection-item">
+                <strong>Conditions</strong> : {{info.condition}}
+              </li>
+              <li class="collection-item">
+                <strong>Lever du soleil</strong> : {{info.sunrise}}
+              </li>
+              <li class="collection-item">
+                <strong>Coucher du soleil</strong> : {{info.sunset}}
+              </li>
+              <li class="collection-item">
+                <strong>Temp&eacute;rature</strong> : {{info.temperature}} &deg;C
+              </li>
+              <li class="collection-item">
+                <strong>Vent</strong> : {{info.wind_speed}} km/h direction {{info.wind_direction}}
+              </li>
+              <li class="collection-item">
+                <strong>Pression</strong> : {{info.pressure}} hPa
+              </li>
+              <li class="collection-item">
+                <strong>Humidit&eacute;</strong> : {{info.humidity}} &percnt;
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col s12">
