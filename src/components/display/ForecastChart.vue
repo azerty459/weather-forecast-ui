@@ -37,11 +37,6 @@ export default{
         this.show.hide = true
       }
     })
-  },
-  mounted () {
-    if (this.chartData != null) {
-      initChart(this)
-    }
   }
 }
 
