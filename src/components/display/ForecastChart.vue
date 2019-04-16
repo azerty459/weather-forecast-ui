@@ -9,7 +9,7 @@
 export default{
   data () {
     return {
-      chartId: generateRandomString(8),
+      chartId: 'canvasChart',
       chart: {id: null},
       chartInstance: null,
       show: {hide: true}
@@ -42,11 +42,6 @@ export default{
 
 /* eslint-disable */
 function initChart(vue) {
-  // Verification que l'id existe toujours
-  let elt = document.getElementById(vue.chartId)
-  if (elt == null) {
-    return false
-  }
   // Creation du tableaux de données
   var dataArray = [];
   vue.chart.data.forEach(elt => {
@@ -58,7 +53,6 @@ function initChart(vue) {
     });
   });
 
-  console.log(vue.chartId, document.getElementById(vue.chartId))
   var ctx = document.getElementById(vue.chartId).getContext('2d');
   vue.chartInstance = new Chart(ctx, {
     type: 'line',
@@ -71,16 +65,6 @@ function initChart(vue) {
     }
   });
   return true
-}
-
-function generateRandomString(stringLength){
-  let randomString = '';
-  let randomAscii;
-  for(let i = 0; i < stringLength; i++) {
-      randomAscii = Math.floor((Math.random() * 25) + 97);
-      randomString += String.fromCharCode(randomAscii)
-  }
-  return randomString
 }
 </script>
 
