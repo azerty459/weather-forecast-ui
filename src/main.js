@@ -3,9 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router/index.js'
+import Materialize from 'materialize-css'
+
+import 'materialize-css/dist/css/materialize.min.css'
+import 'materialize-css/dist/js/materialize.min.js'
 
 window.bus = new Vue()
 
+Vue.use(Materialize)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

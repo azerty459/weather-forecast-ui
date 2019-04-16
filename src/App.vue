@@ -1,32 +1,29 @@
 <template>
   <div id="app">
-    <navbar/>
+    <navigation-bar/>
     <div class="container">
-      <search/>
+      <search-form/>
       <router-view/>
     </div>
   </div>
 </template>
 
 <script>
-import './assets/materialize/js/materialize.min.js'
 import './assets/chart/Chart.bundle.min.js'
 
-import navbar from './components/Header.vue'
-import search from './components/Search.vue'
+import NavigationBar from './components/Header.vue'
+import SearchForm from './components/Search.vue'
 
 export default {
   name: 'App',
   components: {
-    navbar,
-    search
+    NavigationBar,
+    SearchForm
   }
 }
 </script>
 
 <style>
-@import './assets/materialize/css/materialize.min.css';
-
 body {
   background-color: #f5f5f5;
 }
