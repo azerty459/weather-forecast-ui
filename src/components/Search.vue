@@ -1,7 +1,7 @@
 <template>
   <div>
   <div class="search" >
-    <label>Entrez une ville:</label>
+    <label class="label">Entrez une ville:</label>
     <input type="text" @keyup.enter="valider" v-model="searchVille" placeholder="Ville">
     <button type="submit" @click="valider">Valider</button>
   </div>
@@ -10,9 +10,12 @@
   </div>
   <div class="result" v-if="success">
     <div class="title">
-      <h1>{{message}}{{resultVille | capitalize}}</h1><br>
+      <h1>{{message}}{{resultVille | capitalize}}</h1>
     </div>
-    <div class="row pad">
+    <div class="choice row">
+      <choice></choice>
+    </div>
+    <div class="row">
       <card v-for="info in infos.listOfDays" :key="info.date" :icon="info.icon_big" :dayLong="info.day_long" :condition="info.condition" :tempMin="info.tmin" :tempMax="info.tmax"></card>
     </div>
   </div>
@@ -20,6 +23,7 @@
 </template>
 
 <script>
+import choice from './Option.vue'
 import card from './Card.vue'
 
 export default {
@@ -32,7 +36,7 @@ export default {
     }
   },
   components: {
-    card
+    card, choice
   },
   methods: {
     valider: function () {
@@ -69,6 +73,11 @@ export default {
 </script>
 
 <style>
+  .label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    margin-right: 0.5%;
+  }
   .search{
     position: relative;
     margin-right: auto;
@@ -87,7 +96,8 @@ export default {
     text-align: center;
     margin-bottom: 2%;
   }
-  .pad{
-   margin: 4%;
+  .choice{
+    margin-top: 3%;
+    margin-bottom: 2%;
   }
   </style>

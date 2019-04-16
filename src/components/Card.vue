@@ -1,25 +1,30 @@
 <template>
-<div class="card col-md-4" style="width: 18rem;" >
-  <img :src="icon" class="card-img-top" alt="...">
-  <div class="card-body">
-    <div class="jour">
-    <h3>{{dayLong}}</h3><br>
-    </div>
-    <div class="infoJour">
-      <table>
-        <tr>
-          <td class="cell">Condition:</td>
-          <td class="cellres">{{condition}}</td>
-        </tr>
-        <tr>
-          <td class="cell">Température Min:</td>
-          <td class="cellres">{{tempMin}} °C</td>
-        </tr>
-        <tr>
-          <td class="cell">Température Max:</td>
-          <td class="cellres">{{tempMax}} °C</td>
-        </tr>
-      </table>
+<div class="col-md-4">
+  <div class="card">
+    <img :src="icon" class="card-img-top" alt="...">
+    <div class="card-body">
+      <div class="jour">
+        <h3>{{dayLong}}</h3>
+        <hr>
+      </div>
+      <div class="infoJour">
+        <br>
+        <table>
+          <tr>
+            <td class="cell">Condition:</td>
+            <td class="cellres">{{condition}}</td>
+          </tr>
+          <tr>
+            <td class="cell">Température Min:</td>
+            <td class="cellres">{{tempMin}} °C</td>
+          </tr>
+          <tr>
+            <td class="cell">Température Max:</td>
+            <td class="cellres">{{tempMax}} °C</td>
+          </tr>
+        </table>
+        <br>
+      </div>
     </div>
   </div>
 </div>
@@ -36,7 +41,7 @@ export default {
 
 <style>
 .card{
-  margin-bottom: 2%;
+  margin-bottom: 8%;
 }
 .jour{
   text-align: center;
@@ -47,5 +52,9 @@ export default {
 }
 .cellres{
   text-align: center;
+}
+td{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2em;
 }
 </style>
