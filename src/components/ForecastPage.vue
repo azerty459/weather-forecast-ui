@@ -104,17 +104,17 @@ export default{
       })
       var chart = [
         {
-          label: 'Humidité',
+          label: 'Humidité (en %)',
           color: 'rgb(0, 195, 255)',
           data: dataHumidity
         },
         {
-          label: 'Precipitation',
+          label: 'Precipitation (en mm)',
           color: 'rgb(45, 196, 0)',
           data: dataPrecipitation
         },
         {
-          label: 'Temperature',
+          label: 'Temperature (en °C)',
           color: 'rgb(255, 108, 0)',
           data: dataTemperature
         }
