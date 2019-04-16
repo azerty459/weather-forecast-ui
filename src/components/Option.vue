@@ -1,8 +1,8 @@
 <template>
 <div class="buttons col-md-8 offset-md-2">
-    <button type="submit" @click="humidity" class="btn btn-primary btn-md">humidité</button>
-    <button type="submit" @click="hottest" class="btn btn-primary btn-md">Jour le plus chaud</button>
-    <button type="submit" @click="rain" class="btn btn-primary btn-md">Jour de pluie</button>
+  <router-link :to="'/meteo/lille/humidity'" class="btn btn-primary btn-md">humidité</router-link>
+  <router-link :to="'/meteo/lille/humidity'" class="btn btn-primary btn-md">Jour le plus chaud</router-link>
+  <router-link :to="'/meteo/lille/humidity'" class="btn btn-primary btn-md">Jours de pluie</router-link>
 </div>
 </template>
 
@@ -15,8 +15,5 @@ export default {
 <style scoped>
 .buttons{
    text-align: center;
-}
-button{
-    margin-right: 2%;
 }
 </style>
