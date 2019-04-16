@@ -42,6 +42,11 @@ export default{
 
 /* eslint-disable */
 function initChart(vue) {
+  // Verification que l'id existe toujours
+  let elt = document.getElementById(vue.chartId)
+  if (elt == null) {
+    return false
+  }
   // Creation du tableaux de données
   var dataArray = [];
   vue.chart.data.forEach(elt => {
@@ -53,6 +58,7 @@ function initChart(vue) {
     });
   });
 
+  console.log(vue.chartId, document.getElementById(vue.chartId))
   var ctx = document.getElementById(vue.chartId).getContext('2d');
   vue.chartInstance = new Chart(ctx, {
     type: 'line',
@@ -64,6 +70,7 @@ function initChart(vue) {
       datasets: dataArray
     }
   });
+  return true
 }
 
 function generateRandomString(stringLength){
