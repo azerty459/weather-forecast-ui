@@ -37,26 +37,35 @@ export default{
     }
   },
   created () {
-    window.bus.$on('newPage', (page) => {
-      this.pagePrevision.active = false
-      this.pageChaleur.active = false
-      this.pagePluie.active = false
-      this.pageHumidite.active = false
+    var url = location.pathname.split('/')
+    if (url.length > 1) {
+      setActive(this, url[1])
+    }
 
-      switch (page.split('/')[1]) {
-        case 'chaleur':
-          this.pageChaleur.active = true
-          break
-        case 'pluie':
-          this.pagePluie.active = true
-          break
-        case 'humidite':
-          this.pageHumidite.active = true
-          break
-        default:
-          this.pagePrevision.active = true
-      }
+    window.bus.$on('newPage', (page) => {
+      setActive(this, page.split('/')[1])
     })
+  }
+}
+
+function setActive (vue, page) {
+  vue.pagePrevision.active = false
+  vue.pageChaleur.active = false
+  vue.pagePluie.active = false
+  vue.pageHumidite.active = false
+
+  switch (page) {
+    case 'chaleur':
+      vue.pageChaleur.active = true
+      break
+    case 'pluie':
+      vue.pagePluie.active = true
+      break
+    case 'humidite':
+      vue.pageHumidite.active = true
+      break
+    default:
+      vue.pagePrevision.active = true
   }
 }
 
