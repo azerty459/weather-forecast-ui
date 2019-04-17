@@ -5,9 +5,10 @@
     <div class="card-body">
       <div class="jour">
         <h3>{{dayLong}}</h3>
+        <h4>{{date}}</h4>
         <hr>
       </div>
-      <div class="infoJour">
+      <div>
         <br>
         <table>
           <tr>
@@ -34,7 +35,7 @@
 export default {
   name: 'Card',
   props: [
-    'icon', 'dayLong', 'condition', 'tempMin', 'tempMax'
+    'icon', 'dayLong', 'date', 'condition', 'tempMin', 'tempMax'
   ]
 }
 </script>

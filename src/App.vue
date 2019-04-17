@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
-    <Header></Header>
-    <Search></Search>
+<div id="app">
+  <Header></Header>
+  <Search></Search>
+  <div class="container">
     <router-view/>
   </div>
+</div>
 </template>
 
 <script>
