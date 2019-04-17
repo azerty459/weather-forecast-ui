@@ -123,7 +123,7 @@ export default{
     }
   },
   http: {
-    root: 'http://localhost:8080'
+    root: process.env.ROOT_API
   },
   created () {
     if (this.ville != null && this.ville.trim() !== '') {
