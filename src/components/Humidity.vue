@@ -43,11 +43,11 @@ export default {
       }, (response) => {
         console.log('erreur', response)
         this.success = false
+        this.message = `Aucun resultat trouvé pour la ville de "${this.capitalize(this.ville)}"`
       })
     }, (response) => {
       console.log('erreur', response)
       this.success = false
-      this.message = `Aucun resultat trouvé pour la ville de "${this.capitalize(this.ville)}"`
     })
   },
   methods: {
