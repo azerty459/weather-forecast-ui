@@ -11,7 +11,7 @@
       </div>
       <div v-if="info.length">
         <div class="row">
-          <display-card v-for="i in info" :key="i.date" :icon="i.icon" :day="i.nom" :date="i.date" :condition="i.prevision_generale" :max="i.temparature_max" :min="i.temparature_min"/>
+          <display-card v-for="i in info" :key="i.date" :icon="i.icon" :day="i.name" :date="i.date" :condition="i.general_forecast" :max="i.temparature_max" :min="i.temparature_min"/>
         </div>
       </div>
       <div v-else>

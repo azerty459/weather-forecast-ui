@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col s11 m12 offset-m4">
           <div class="row">
-            <display-card :icon="info.icon" :day="info.nom" :date="info.date" :condition="info.prevision_generale" :max="info.temparature_max" :min="info.temparature_min"/>
+            <display-card :icon="info.icon" :day="info.name" :date="info.date" :condition="info.general_forecast" :max="info.temparature_max" :min="info.temparature_min"/>
           </div>
         </div>
       </div>

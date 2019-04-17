@@ -53,7 +53,7 @@
       </div>
       <div class="row">
         <div v-for="day in info.days" :key="day.date" @click="selectDay(day)" class="pointer" title="Plus d'informations">
-          <display-card :icon="day.icon" :day="day.nom" :date="day.date" :condition="day.prevision_generale" :max="day.temparature_max" :min="day.temparature_min"/>
+          <display-card :icon="day.icon" :day="day.name" :date="day.date" :condition="day.general_forecast" :max="day.temparature_max" :min="day.temparature_min"/>
         </div>
       </div>
     </div>
