@@ -35,7 +35,7 @@
               <strong>Temp&eacute;rature</strong> : {{info.temperature}} &deg;C
             </li>
             <li class="collection-item">
-              <strong>Vent</strong> : {{info.wind_speed}} km/h direction {{info.wind_direction}}
+              <strong>Vent</strong> : {{info.wind_speed}} km/h direction {{info.wind_direction | fullNameDir}}
             </li>
             <li class="collection-item">
               <strong>Pression</strong> : {{info.pressure}} hPa
@@ -120,6 +120,18 @@ export default{
         }
       ]
       window.bus.$emit('selectDay', {id: info.date, data: chart})
+    }
+  },
+  filters: {
+    fullNameDir (value) {
+      var regex = /S/gi
+      var str = value.replace(regex, 'Sud ')
+      regex = /E/gi
+      str = str.replace(regex, 'Est ')
+      regex = /N/gi
+      str = str.replace(regex, 'Nord ')
+      regex = /O/gi
+      return str.replace(regex, 'Ouest ')
     }
   },
   http: {
