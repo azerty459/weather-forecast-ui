@@ -51,11 +51,9 @@ export default {
     this.$http.get(`http://127.0.0.1:8080/meteo/${this.ville}/hottest`).then((response) => {
       this.infos = response.json().then((data) => {
         this.infos = data
-        if (this.infos.day !== null) {
-          this.load = false
-          this.success = true
-          this.message = `${this.infos.day} ${this.infos.date} est la journée la plus chaude à ${this.capitalize(this.ville)}`
-        }
+        this.load = false
+        this.success = true
+        this.message = `${this.infos.day} ${this.infos.date} est la journée la plus chaude à ${this.capitalize(this.ville)}`
       }, (response) => {
         console.log('erreur', response)
         this.load = false

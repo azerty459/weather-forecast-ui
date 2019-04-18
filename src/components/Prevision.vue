@@ -40,23 +40,28 @@ export default {
   ],
   mounted () {
     this.load = true
-    this.$http.get(`http://127.0.0.1:8080/meteo/${this.ville}`).then((response) => {
-      this.infos = response.json().then((data) => {
-        this.infos = data
-        this.load = false
-        this.success = true
-        this.message = `Prévision à 5 jours pour la ville de ${this.capitalize(this.ville)}`
+    if (this.ville == null) {
+      this.load = false
+      this.$route.push('/')
+    } else {
+      this.$http.get(`http://127.0.0.1:8080/meteo/${this.ville}`).then((response) => {
+        this.infos = response.json().then((data) => {
+          this.infos = data
+          this.load = false
+          this.success = true
+          this.message = `Prévision à 5 jours pour la ville de ${this.capitalize(this.ville)}`
+        }, (response) => {
+          console.log('eerreur', response)
+          this.load = false
+          this.success = false
+          this.message = `Aucun resultat trouvé pour la ville de "${this.capitalize(this.ville)}"`
+        })
       }, (response) => {
-        console.log('eerreur', response)
+        console.log('erreur', response)
         this.load = false
         this.success = false
-        this.message = `Aucun resultat trouvé pour la ville de "${this.capitalize(this.ville)}"`
       })
-    }, (response) => {
-      console.log('erreur', response)
-      this.load = false
-      this.success = false
-    })
+    }
   },
   methods: {
     capitalize: function (value) {

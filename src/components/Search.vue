@@ -7,6 +7,9 @@
     </div>
   </div>
   <div class="logoAccueil row" v-if="!success">
+    <div class="bien center col-sm-8 offset-sm-2">
+      <h3>Bienvenue sur votre application météo</h3>
+    </div>
     <div class="center col-sm-8 offset-sm-2">
       <img  src="./../assets/logo_accueil.png"/>
     </div>
@@ -45,6 +48,12 @@ export default {
 </script>
 
 <style>
+.bien{
+  margin-bottom: 1%;
+}
+h1{
+  font-family:  Georgia, 'Times New Roman', Times, serif;
+}
 .center{
   text-align: center;
 }

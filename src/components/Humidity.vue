@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class=" humid row">
+  <div class="humid row">
     <div class="col-sm-8 offset-sm-2" v-if="success">
       <table class="center table table-bordered">
         <tr>
@@ -64,6 +64,8 @@ export default {
     }, (response) => {
       console.log('erreur', response)
       this.success = false
+      this.load = false
+      this.message = `Aucun resultat trouvé pour la ville de "${this.capitalize(this.ville)}"`
     })
   },
   methods: {
