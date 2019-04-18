@@ -1,10 +1,14 @@
 <template>
-  <div class="search">
+<div class="search">
   <div class="row" >
     <div class="center col-sm-8 offset-sm-2">
-      <label>Entrez une ville:</label>
       <input type="text" @keyup.enter="valider" v-model="searchVille" placeholder="Ville">
-      <button type="submit" @click="valider">Valider</button>
+      <button class="btn btn-secondary btn-md" type="submit" @click="valider">Rechercher</button>
+    </div>
+  </div>
+  <div class="logoAccueil row" v-if="!success">
+    <div class="center col-sm-8 offset-sm-2">
+      <img  src="./../assets/logo_accueil.png"/>
     </div>
   </div>
   <div class="choix" v-if="success">
@@ -12,7 +16,7 @@
       <choice :ville="this.searchVille"></choice>
     </div>
   </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -46,6 +50,9 @@ export default {
 }
 .search{
   margin-top: 4%;
+}
+.logoAccueil{
+  margin-top: 6%;
 }
 .choix{
   margin-top: 2%;

@@ -70,6 +70,6 @@ export default {
 
 <style>
 .load{
-  margin-top: 10%;
+  margin-top: 2%;
 }
 </style>
