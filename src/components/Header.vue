@@ -3,7 +3,7 @@
     <div class="navbar-fixed">
       <nav class="blue accent-4">
         <div class="nav-wrapper">
-          <div class="brand-logo hide-on-med-and-down"><img class="logo-img" src="@/assets/logo.png"></div>
+          <div class="brand-logo hide-on-med-and-down"><a href="https://www.nextoo.fr" target="_blank"><img class="logo-img" src="@/assets/logo.png"></a></div>
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <router-link :to="'/'" class="brand-logo title center">M&eacute;t&eacute;o</router-link>
           <ul id="nav" class="right hide-on-med-and-down">
@@ -16,7 +16,7 @@
       </nav>
     </div>
     <ul class="sidenav" id="mobile-nav">
-      <li class="center margin-top"><img class="logo-img" src="@/assets/logo.png"></li>
+      <li class="center margin-top"><a href="https://www.nextoo.fr"><img class="logo-img" src="@/assets/logo.png"></a></li>
       <hr>
       <li v-bind:class="pagePrevision"><router-link :to="'/prevision'">Prévisions</router-link></li>
       <li v-bind:class="pageChaleur"><router-link :to="'/chaleur'">Jour le plus chaud</router-link></li>
