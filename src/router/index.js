@@ -15,15 +15,15 @@ export default new Router({
       name: 'index'
     },
     {
-      path: '/meteo/:ville?/humidity',
-      name: 'Humidity',
-      component: r => require.ensure([], () => r(Humidity)),
-      props: true
-    },
-    {
       path: '/meteo/:ville?',
       name: 'Prevision',
       component: r => require.ensure([], () => r(Prevision)),
+      props: true
+    },
+    {
+      path: '/meteo/:ville?/humidity',
+      name: 'Humidity',
+      component: r => require.ensure([], () => r(Humidity)),
       props: true
     },
     {

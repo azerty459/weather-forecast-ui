@@ -2,7 +2,7 @@
 <div class="search">
   <div class="row" >
     <div class="center col-sm-8 offset-sm-2">
-      <input type="text" @keyup.enter="valider" v-model="searchVille" placeholder="Ville">
+      <input type="text" @keyup.enter="valider" v-model="searchVille" :placeholder="nom">
       <button class="btn btn-secondary btn-md" type="submit" @click="valider">Rechercher</button>
     </div>
   </div>
@@ -29,8 +29,17 @@ export default {
   data () {
     return {
       success: false,
+      nom: 'Ville',
       searchVille: '',
       infos: []
+    }
+  },
+  created () {
+    var split = location.pathname.split('/')
+    if (split.length > 2 && split[1] === 'meteo' && split[2].trim !== '') {
+      this.nom = split[2]
+      this.searchVille = this.nom
+      this.success = true
     }
   },
   components: {

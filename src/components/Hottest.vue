@@ -53,7 +53,7 @@ export default {
         this.infos = data
         this.load = false
         this.success = true
-        this.message = `${this.infos.day} ${this.infos.date} est la journée la plus chaude à ${this.capitalize(this.ville)}`
+        this.message = `${this.infos.day} ${this.infos.date} sera la journée la plus chaude à ${this.capitalize(this.ville)}`
       }, (response) => {
         console.log('erreur', response)
         this.load = false

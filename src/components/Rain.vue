@@ -12,7 +12,9 @@
       </div>
     </div>
     <div class="row" v-if="success">
-      <card v-for="info in infos.listOfDays" :key="info.date" :icon="info.icon_big" :dayLong="info.day_long" :date="info.date" :condition="info.condition" :tempMin="info.tmin" :tempMax="info.tmax"></card>
+      <div class="col-md-4" v-if="one"></div>
+      <div class="col-md-2" v-if="two"></div>
+      <card v-for="info in infos" :key="info.date" :icon="info.icon_big" :dayLong="info.day_long" :date="info.date" :condition="info.condition" :tempMin="info.tmin" :tempMax="info.tmax"></card>
     </div>
   </div>
 </div>
@@ -27,6 +29,8 @@ export default {
   data () {
     return {
       success: false,
+      one: false,
+      two: false,
       load: false,
       infos: [],
       message: ''
@@ -45,8 +49,14 @@ export default {
         this.infos = data
         if (this.infos.length > 0) {
           this.load = false
-          this.success = true
           this.message = `Jours de pluie à venir pour la ville de ${this.capitalize(this.ville)}`
+          if (this.infos.length === 1) {
+            this.one = true
+          }
+          if (this.infos.length === 2) {
+            this.two = true
+          }
+          this.success = true
         } else {
           this.load = false
           this.success = false
