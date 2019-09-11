@@ -10,28 +10,11 @@
 </template>
 
 <script>
+import VueX from "vuex";
+
 export default {
-  data() {
-    return {
-      citizen: {}
-    };
-  },
-  http: {
-    root: "http://localhost:3000"
-  },
-  created() {
-    bus.$on("selectedCitizen", selectedCitizen => {
-      this.$resource("citizens{/id}/details")
-        .get({ id: selectedCitizen })
-        .then(
-          response => {
-            this.citizen = response.data[0];
-          },
-          error => {
-            console.log("error : ", error);
-          }
-        );
-    });
+  computed: {
+    ...VueX.mapGetters({ citizen: "selectedCitizen" })
   }
 };
 </script>

@@ -2,15 +2,17 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import App from "./App";
+import Vuex from "vuex";
+import store from "./vuex/AppStore";
+
+Vue.use(Vuex);
 
 Vue.config.productionTip = false;
-
-// add global bus for testing events and listeners between components
-window.bus = new Vue();
 
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
   components: { App },
-  template: "<App/>"
+  template: "<App/>",
+  store
 });
