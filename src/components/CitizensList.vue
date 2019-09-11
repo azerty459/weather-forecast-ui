@@ -15,17 +15,18 @@ import VueResource from "vue-resource";
 Vue.use(VueResource);
 
 export default {
-  props: ["firstname", "lastname"],
   data() {
     return {
-      citizens: [],
-      count: 0
+      citizens: []
     };
   },
   computed: {
     counter() {
       return this.citizens.length;
     }
+  },
+  http: {
+    root: "http://localhost:3000"
   },
   mounted() {
     this.$resource("citizens")
@@ -40,19 +41,9 @@ export default {
       );
   },
   methods: {
-    addCitizen() {
-      this.citizens.push({
-        id: this.count++,
-        firstname: "a" + this.count,
-        lastname: "b" + this.count
-      });
-    },
-    select(citizen) {
-      this.$emit("selected", citizen);
+    select(citizenSelected) {
+      bus.$emit("selectedCitizen", citizenSelected.id);
     }
-  },
-  http: {
-    root: "http://localhost:3000"
   }
 };
 </script>

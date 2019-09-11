@@ -21,7 +21,7 @@
   ],
   "details": [
     {
-      "id": "1",
+      "id": 1,
       "citizenId": "1",
       "firstname": "Homer",
       "lastname": "Simpson",

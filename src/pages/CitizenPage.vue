@@ -1,7 +1,7 @@
 <template>
   <div>
-    <citizens-list v-on:selected="setSelected($event)"></citizens-list>
-    <citizen-detail :citizen="selectedCitizen"></citizen-detail>
+    <citizens-list></citizens-list>
+    <citizen-detail></citizen-detail>
   </div>
 </template>
 
@@ -9,16 +9,6 @@
 import CitizensList from "./../components/CitizensList";
 import CitizenDetail from "./../components/CitizenDetail";
 export default {
-  components: { CitizensList, CitizenDetail },
-  data() {
-    return {
-      selectedCitizen: {}
-    };
-  },
-  methods: {
-    setSelected(selectedCitizen) {
-      this.selectedCitizen = selectedCitizen;
-    }
-  }
+  components: { CitizensList, CitizenDetail }
 };
 </script>
