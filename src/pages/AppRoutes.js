@@ -1,8 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-const CitizenPage = () => import("./CitizenPage");
-const HelloWorld = () => import("../components/HelloWorld");
+const WeatherPage = () => import("./WeatherPage");
 
 Vue.use(Router);
 
@@ -10,24 +9,13 @@ let router = new Router({
   mode: "history",
   routes: [
     {
-      path: "/a",
-      component: CitizenPage,
-      name: "detail"
-    },
-    {
-      path: "/a/:id",
-      component: CitizenPage,
-      name: "detail",
-      props: true
-    },
-    {
-      path: "/b",
-      component: HelloWorld,
-      name: "hello"
+      path: "/",
+      component: WeatherPage,
+      name: "weather"
     },
     {
       path: "*",
-      redirect: "/a"
+      redirect: "/"
     }
   ]
 });
