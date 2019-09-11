@@ -18,7 +18,6 @@ export default {
   methods: {
     setSelected(selectedCitizen) {
       this.selectedCitizen = selectedCitizen;
-      console.log(this.selectedCitizen);
     }
   }
 };

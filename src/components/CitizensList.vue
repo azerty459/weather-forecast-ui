@@ -15,11 +15,29 @@ import VueResource from "vue-resource";
 Vue.use(VueResource);
 
 export default {
+  props: ["firstname", "lastname"],
   data() {
     return {
       citizens: [],
       count: 0
     };
+  },
+  computed: {
+    counter() {
+      return this.citizens.length;
+    }
+  },
+  mounted() {
+    this.$resource("citizens")
+      .get()
+      .then(
+        response => {
+          this.citizens = response.data;
+        },
+        error => {
+          console.log("erreur", error);
+        }
+      );
   },
   methods: {
     addCitizen() {
@@ -32,25 +50,6 @@ export default {
     select(citizen) {
       this.$emit("selected", citizen);
     }
-  },
-  computed: {
-    counter() {
-      return this.citizens.length;
-    }
-  },
-  props: ["firstname", "lastname"],
-  mounted() {
-    this.$resource("citizens")
-      .get()
-      .then(
-        response => {
-          console.log(response);
-          this.citizens = response.data;
-        },
-        error => {
-          console.log("erreur", error);
-        }
-      );
   },
   http: {
     root: "http://localhost:3000"
