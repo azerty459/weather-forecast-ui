@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <citizen-page></citizen-page>
+    <navigation-bar></navigation-bar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import CitizenPage from "./pages/CitizenPage";
-
+import NavigationBar from "./components/NavigationBar";
 export default {
   name: "App",
-  components: { CitizenPage }
+  components: { NavigationBar }
 };
 </script>
 
