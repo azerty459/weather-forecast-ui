@@ -1,5 +1,5 @@
 <template>
-  <div>week</div>
+  <div>week in progress...</div>
 </template>
 
 <script>

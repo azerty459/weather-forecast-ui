@@ -17,11 +17,12 @@ let router = new Router({
       name: "weather",
       children: [
         {
+          // :id(\\d+) id parametr with regexp only numbers allowed
           path: ":id(\\d+)/current",
           component: WeatherCurrent
         },
         {
-          path: ":id(\\d+)/detail",
+          path: ":id(\\d+)/details",
           component: WeatherDetailed
         },
         {
@@ -31,6 +32,7 @@ let router = new Router({
       ]
     },
     {
+      // * is joker : url not recognize, by default redirect to WeatherPage
       path: "*",
       redirect: "/"
     }

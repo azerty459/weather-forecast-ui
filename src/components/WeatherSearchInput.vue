@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" placeholder="Rechercher une ville" />
+    <input type="text" placeholder="Search a city" />
   </div>
 </template>
 
