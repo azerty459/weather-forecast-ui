@@ -11,6 +11,10 @@ import router from "./pages/AppRoutes";
 
 Vue.config.productionTip = false;
 
+router.afterEach((to, from, next) => {
+  store.commit("SET_ROUTE", router.currentRoute.name);
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: "#app",

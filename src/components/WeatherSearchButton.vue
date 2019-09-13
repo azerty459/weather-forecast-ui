@@ -1,15 +1,17 @@
 <template>
   <div>
-    <button class="button">search</button>
+    <button @click="search" class="button">search</button>
   </div>
 </template>
 
 <script>
-export default {};
-</script>
+import Vue from "vue";
+import VueX, { mapActions } from "vuex";
 
-<style scoped>
-.button {
-  display: flex;
-}
-</style>
+Vue.use(VueX);
+export default {
+  methods: {
+    ...mapActions({ search: "launchSearch" })
+  }
+};
+</script>

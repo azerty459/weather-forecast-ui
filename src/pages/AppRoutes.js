@@ -19,11 +19,13 @@ let router = new Router({
         {
           // :id(\\d+) id parametr with regexp only numbers allowed
           path: ":id(\\d+)/current",
-          component: WeatherCurrent
+          component: WeatherCurrent,
+          name: "weatherCurrent"
         },
         {
           path: ":id(\\d+)/details",
-          component: WeatherDetailed
+          component: WeatherDetailed,
+          name: "weatherDetails"
         },
         {
           path: ":id(\\d+)/week",
