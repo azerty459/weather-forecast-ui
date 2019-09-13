@@ -12,7 +12,7 @@ import router from "./pages/AppRoutes";
 Vue.config.productionTip = false;
 
 router.afterEach((to, from, next) => {
-  store.commit("SET_ROUTE", router.currentRoute.name);
+  store.dispatch("updateRoute", router.currentRoute.name);
 });
 
 /* eslint-disable no-new */

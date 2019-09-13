@@ -17,13 +17,12 @@ let router = new Router({
       name: "weather",
       children: [
         {
-          // :id(\\d+) id parametr with regexp only numbers allowed
-          path: ":id(\\d+)/current",
+          path: "/current",
           component: WeatherCurrent,
           name: "weatherCurrent"
         },
         {
-          path: ":id(\\d+)/details",
+          path: "/details",
           component: WeatherDetailed,
           name: "weatherDetails"
         },

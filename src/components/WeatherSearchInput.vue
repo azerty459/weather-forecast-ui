@@ -6,7 +6,6 @@
       type="text"
       placeholder="Search a city"
     />
-    {{search}}
   </div>
 </template>
 
