@@ -2,7 +2,8 @@
   <div>
     <input
       :value="search"
-      v-on:input="updateSearch($event)"
+      v-on:input="$emit('update-search', $event)"
+      v-on:keyup.enter="$emit('launch-search')"
       type="text"
       placeholder="Search a city"
     />
@@ -10,16 +11,7 @@
 </template>
 
 <script>
-import VueX from "vuex";
-
 export default {
-  computed: {
-    ...VueX.mapGetters({ search: "search" })
-  },
-  methods: {
-    updateSearch(event) {
-      this.$store.commit("SET_SEARCH", event.target.value);
-    }
-  }
+  props: ["search"]
 };
 </script>

@@ -27,7 +27,7 @@ let router = new Router({
           name: "weatherDetails"
         },
         {
-          path: ":id(\\d+)/week",
+          path: "/week",
           component: WeatherWeek
         }
       ]

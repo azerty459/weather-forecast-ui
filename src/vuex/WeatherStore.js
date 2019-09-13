@@ -85,6 +85,10 @@ const actions = {
     store.dispatch("launchSearch");
   },
 
+  updateSearchInput: (store, search) => {
+    store.commit("SET_SEARCH", search);
+  },
+
   launchSearch: store => {
     if (store.state.search.trim().length > 0) {
       switch (store.state.route) {
