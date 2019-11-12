@@ -1,27 +1,9 @@
 <template>
   <div id="app">
-    <b-navbar type="light" variant="light">
-      <b-navbar-brand href="#">Forecast UI</b-navbar-brand>
-      <b-nav-form>
-        <b-form-input class="mr-sm-2" placeholder="Search" v-model="ville"></b-form-input>
-        <b-nav tabs>
-          <b-nav-item @click.prevent="tab = 'hottestdaytab'" :active="tab === 'hottestdaytab'">
-            <router-link :to="{name: 'HottestDay', params: {nomville:ville}}">Hottest Day</router-link>
-          </b-nav-item>
-          <b-nav-item @click.prevent="tab = 'rainydaystab'" :active="tab === 'rainydaystab'">
-            <router-link :to="{name: 'RainyDays', params: {nomville:ville}}">Rainy Days</router-link>
-          </b-nav-item>
-          <b-nav-item
-            @click.prevent="tab = 'actualhumiditytab'"
-            :active="tab === 'actualhumiditytab'"
-          >
-            <router-link :to="{name: 'ActualHumidity', params: {nomville:ville}}">Actual Humidity</router-link>
-          </b-nav-item>
-        </b-nav>
-      </b-nav-form>
-    </b-navbar>
+    <search-bar @searchedCity="onClickChild"></search-bar>
     <b-container fluid class="mt-3">
-      <router-view />
+      <home-page v-show="!cityName" :cityName="cityName"></home-page>
+      <nav-bar v-if="cityName" :cityName="cityName"></nav-bar>
     </b-container>
   </div>
 </template>
@@ -29,13 +11,24 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import SearchBar from './components/SearchBar'
+import HomePageVue from './components/HomePage'
+import NavBarVue from './components/NavBar'
 
 export default {
   name: 'App',
+  components: {
+    'search-bar': SearchBar,
+    'home-page': HomePageVue,
+    'nav-bar': NavBarVue
+  },
   data () {
-    return {
-      ville: '',
-      tab: 'hottestdaytab'
+    return { cityName: '' }
+  },
+  methods: {
+    onClickChild (value) {
+      this.cityName = value
+      console.log('child', value) // someValue
     }
   }
 }

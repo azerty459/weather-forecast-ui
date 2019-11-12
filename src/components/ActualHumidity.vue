@@ -4,7 +4,7 @@
       <b-col>
         <b-card
           title="Humidité"
-          :sub-title="nomville"
+          :sub-title="city"
           img-top
           tag="article"
           style="max-width: 20rem;"
@@ -14,7 +14,6 @@
             v-for="(value, name) in actualhumidity"
             v-if="value !== null"
             :key="name"
-            v-show="hasactualhumidity"
           >Taux actuel : {{value + " %"}}</b-card-text>
         </b-card>
       </b-col>
@@ -29,30 +28,19 @@ export default {
       actualhumidity: []
     }
   },
-  props: { nomville: String },
+  props: { city: String },
   http: {
     root: 'http://localhost:8082/weather/'
   },
   mounted () {
-    if (this.nomville == null) {
-      this.load = false
-      this.$route.push('/')
-    } else {
-      this.$resource('actualHumidity/' + this.nomville)
-        .get()
-        .then(response => {
-          this.actualhumidity = response.data
-        })
-        .catch(response => {
-          console.log('erreur api', response)
-        })
-    }
-  },
-  methods: {},
-  computed: {
-    hasactualhumidity () {
-      return this.actualhumidity !== null
-    }
+    this.$resource('actualHumidity/' + this.city)
+      .get()
+      .then(response => {
+        this.actualhumidity = response.data
+      })
+      .catch(response => {
+        console.log('erreur api', response)
+      })
   }
 }
 </script>

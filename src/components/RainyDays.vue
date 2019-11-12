@@ -4,18 +4,13 @@
       <b-col>
         <b-card
           title="Les jours où il pleut"
-          :sub-title="nomville"
+          :sub-title="city"
           img-top
           tag="article"
           style="max-width: 20rem;"
           class="mb-2"
         >
-          <b-card-text
-            v-for="name in rainydays"
-            v-if="name !== null"
-            :key="name"
-            v-show="hasrainydays"
-          >
+          <b-card-text v-for="name in rainydays" v-if="name !== null" :key="name">
             <ul>
               <li>{{name}}</li>
             </ul>
@@ -33,29 +28,19 @@ export default {
       rainydays: []
     }
   },
-  props: { nomville: String },
+  props: { city: String },
   http: {
     root: 'http://localhost:8082/weather/'
   },
   mounted () {
-    if (this.nomville == null) {
-      this.load = false
-      this.$route.push('/')
-    } else {
-      this.$resource('rainyDays/' + this.nomville)
-        .get()
-        .then(response => {
-          this.rainydays = response.data.sort((a, b) => a - b)
-        })
-        .catch(response => {
-          console.log('erreur api', response)
-        })
-    }
-  },
-  computed: {
-    hasrainydays () {
-      return this.rainydays.length !== null
-    }
+    this.$resource('rainyDays/' + this.city)
+      .get()
+      .then(response => {
+        this.rainydays = response.data.sort((a, b) => a - b)
+      })
+      .catch(response => {
+        console.log('erreur api', response)
+      })
   }
 }
 </script>
