@@ -1,0 +1,12 @@
+<div class="forecastItemContainer">
+  <h3>Humidité</h3>
+  <p>Actuellement : {{ humidityDetails.currentHumidity }} %</p>
+  <p>
+    Moyenne pour les prochains jours :
+    {{ humidityDetails.meanHumidityForComingDays }}%
+  </p>
+  <p>Jour le plus sec :</p>
+  <app-forecast-item
+    [forecast]="humidityDetails.driestDayPrevision"
+  ></app-forecast-item>
+</div>

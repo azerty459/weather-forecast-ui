@@ -1,0 +1,8 @@
+<div class="forecastListContainer">
+  <!-- TODO -->
+  <app-forecast-item
+    *ngFor="let f of (forecastData | async)?.forecasts"
+    [forecast]="f"
+  >
+  </app-forecast-item>
+</div>

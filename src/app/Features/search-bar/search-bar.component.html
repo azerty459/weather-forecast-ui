@@ -1,0 +1,17 @@
+<div class="searchBarContainer form-group">
+  <label for="ville">Ville</label>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Entrez la ville..."
+    [(ngModel)]="ville"
+    (blur)="setVille()"
+    #villeInput
+  />
+  <button type="button" class="btn btn-primary" (click)="goToMeteo()">
+    Météo
+  </button>
+  <button type="button" class="btn btn-primary" (click)="goToHumidity()">
+    Humidité
+  </button>
+</div>
