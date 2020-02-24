@@ -17,13 +17,16 @@ import { FormsModule } from "@angular/forms";
 import { MeteoDataState } from "./State/MeteoData.state";
 import { MeteoOptionState } from "./State/MeteoOption.state";
 
+import { CustomDate } from "./Shared/Pipes/custom-date.pipe";
+
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
     ForecastListComponent,
     ForecastItemComponent,
-    HumidityInfoComponent
+    HumidityInfoComponent,
+    CustomDate
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-<div class="forecastItemContainer">
+<div class="forecastItemContainer" [ngClass]="{ hot: hot, rainy: rainy }">
   <div class="forecastItemLeftHalf">
-    {{ forecast.date }}
+    {{ forecast.date | customDate }}
   </div>
   <div class="forecastItemRightHalf">
     <p>{{ forecast.description }}</p>

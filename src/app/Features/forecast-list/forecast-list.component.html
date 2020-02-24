@@ -1,8 +1,12 @@
 <div class="forecastListContainer">
   <!-- TODO -->
   <app-forecast-item
-    *ngFor="let f of (forecastData | async)?.forecasts"
+    *ngFor="let f of forecasts; let i = index"
     [forecast]="f"
+    [hot]="showHot && i === hottestDayIndex"
+    [rainy]="
+      showRainy && rainyDaysIndexes !== null && rainyDaysIndexes.includes(i)
+    "
   >
   </app-forecast-item>
 </div>

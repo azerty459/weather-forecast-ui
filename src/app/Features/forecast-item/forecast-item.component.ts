@@ -6,10 +6,8 @@ import { Forecast } from "src/app/Core/Model/Forecast";
   templateUrl: "./forecast-item.component.html",
   styleUrls: ["./forecast-item.component.scss"]
 })
-export class ForecastItemComponent implements OnInit {
+export class ForecastItemComponent {
   @Input() forecast: Forecast;
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Input() hot: boolean;
+  @Input() rainy: boolean;
 }

@@ -62,7 +62,7 @@ export class MeteoDataState {
 
   @Action(SetForecasts)
   setForecasts(
-    { getState, patchState }: StateContext<AppData>,
+    { patchState }: StateContext<AppData>,
     { forecasts }: SetForecasts
   ) {
     patchState({ forecasts });
@@ -70,7 +70,7 @@ export class MeteoDataState {
 
   @Action(SetHottestDay)
   setHottestDay(
-    { getState, patchState }: StateContext<AppData>,
+    { patchState }: StateContext<AppData>,
     { hottestDay }: SetHottestDay
   ) {
     patchState({ hottestDay });
@@ -78,7 +78,7 @@ export class MeteoDataState {
 
   @Action(SetRainyDays)
   setRainyDays(
-    { getState, patchState }: StateContext<AppData>,
+    { patchState }: StateContext<AppData>,
     { rainyDays }: SetRainyDays
   ) {
     patchState({ rainyDays });
@@ -86,7 +86,7 @@ export class MeteoDataState {
 
   @Action(SetHumidityDetails)
   setHumidityDetails(
-    { getState, patchState }: StateContext<AppData>,
+    { patchState }: StateContext<AppData>,
     { humidityDetails }: SetHumidityDetails
   ) {
     patchState({ humidityDetails });
